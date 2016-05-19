@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -47,6 +48,7 @@ public class Int extends javax.swing.JFrame {
         Btema = new javax.swing.JButton();
         Bcomfoto = new javax.swing.JButton();
         Bcoments = new javax.swing.JButton();
+        BbuscarUser = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FEISBU");
@@ -96,7 +98,7 @@ public class Int extends javax.swing.JFrame {
         Bcomfoto.setBackground(new java.awt.Color(0, 102, 204));
         Bcomfoto.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Bcomfoto.setForeground(new java.awt.Color(255, 255, 255));
-        Bcomfoto.setText("Comentar foto");
+        Bcomfoto.setText("Comentar");
         Bcomfoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BcomfotoActionPerformed(evt);
@@ -113,21 +115,36 @@ public class Int extends javax.swing.JFrame {
             }
         });
 
+        BbuscarUser.setBackground(new java.awt.Color(0, 102, 204));
+        BbuscarUser.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BbuscarUser.setForeground(new java.awt.Color(255, 255, 255));
+        BbuscarUser.setText("Buscar usuario");
+        BbuscarUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BbuscarUserActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Bestado, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-                    .addComponent(Btema, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Bcomfoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(95, 95, 95)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(Bfoto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Bcoments, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Blike, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Bcomfoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Btema, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Bestado, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE))
+                        .addGap(71, 71, 71)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(Bfoto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Blike, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Bcoments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(258, 258, 258)
+                        .addComponent(BbuscarUser, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(111, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -145,7 +162,9 @@ public class Int extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Bcomfoto, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Bcoments, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addComponent(BbuscarUser, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -201,7 +220,7 @@ public class Int extends javax.swing.JFrame {
         try {
             uhum.buscarTema();
         } catch (FacebookException ex) {
-            Logger.getLogger(Int.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(rootPane, "Metodo hecho pero GraphAPI no permite buscar temas \n a partir de la 2.0");
         }
     }//GEN-LAST:event_BtemaActionPerformed
 
@@ -214,8 +233,20 @@ public class Int extends javax.swing.JFrame {
     }//GEN-LAST:event_BcomfotoActionPerformed
 
     private void BcomentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BcomentsActionPerformed
-        // TODO add your handling code here:
+        try {
+            uhum.comentarios();
+        } catch (FacebookException ex) {
+            Logger.getLogger(Int.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_BcomentsActionPerformed
+
+    private void BbuscarUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BbuscarUserActionPerformed
+        try {
+            uhum.buscarUser();
+        } catch (FacebookException ex) {
+            Logger.getLogger(Int.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_BbuscarUserActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,6 +285,7 @@ public class Int extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BbuscarUser;
     private javax.swing.JButton Bcoments;
     private javax.swing.JButton Bcomfoto;
     private javax.swing.JButton Bestado;
