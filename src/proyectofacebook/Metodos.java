@@ -49,7 +49,7 @@ public class Metodos {
         
             PostUpdate post = new PostUpdate(new URL("http://www.celtavigo.net/es/"))
                     .picture(new URL("http://www.pormisbalones.com/files/styles/epsa_horizontal_thumbail/public/guidetti_camp_nou.jpg?itok=Tr73P85r"))
-                    .description("Best player ever");
+                    .description("Best player ever ");
             mifacebook.postFeed(post);
         
     }
