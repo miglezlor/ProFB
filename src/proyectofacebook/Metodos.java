@@ -23,10 +23,11 @@ public class Metodos {
     
     public Facebook iniciar(){
         ConfigurationBuilder cb = new ConfigurationBuilder();
+        //introducir los tokens en los huecos con comillas
         cb.setDebugEnabled(true)
-                .setOAuthAppId("172862366442417")
-                .setOAuthAppSecret("c9cffd2054e4c153f743559b6de5f3fb")
-                .setOAuthAccessToken("EAACEdEose0cBAD99gPAb3liTaLEF5bWhScShKiAP86Oa05LTZCDdbqXiZB4ztOOaz6sBHRxxH0rCBtUVFwdZABJnupWbmnRbuZBPooRBpK0ywia6qpTlyRLEQtIDyAfW8ZA0RQhchFwd8HtHlfgGHqyzatb3C4sFdjJuHdWhQBGbDDKeDwe3k");
+                .setOAuthAppId("")
+                .setOAuthAppSecret("")
+                .setOAuthAccessToken("");
 
             FacebookFactory ff = new FacebookFactory(cb.build());
             mifacebook = ff.getInstance();
